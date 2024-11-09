@@ -12,7 +12,7 @@ function renderPolls() {
     polls.forEach((poll, index) => {
         const pollDiv = document.createElement('div');
         pollDiv.innerHTML = `
-            <h3>${poll.title}</h3> <!-- Исправлено на ${poll.title} -->
+            <h3>${poll.title}</h3>
             <button onclick="editPoll(${index})">Редактировать</button>
             <button onclick="deletePoll(${index})">Удалить</button>
         `;
@@ -29,7 +29,8 @@ function addPoll() {
 }
 // Функция для редактирования опроса
 function editPoll(index) {
-    window.location.href = `editPoll.html?index=${index}`; // Исправлено на ${index}
+window.location.href = `editPoll.html?index={index}`;
+
 }
 // Функция для удаления опроса
 function deletePoll(index) {
