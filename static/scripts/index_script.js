@@ -20,6 +20,7 @@ document.querySelector('#features ul').innerHTML = `
 <li>Интеграция с существующими HR-системами.</li>
 <li>Адаптивный дизайн для всех устройств.</li>
 `;
+
 document.querySelector('#examples h2').innerText = 'Примеры использования';
 document.querySelector('#examples p').innerText = 'Наш конструктор подходит для:';
 document.querySelector('#examples ul').innerHTML = `
@@ -27,6 +28,7 @@ document.querySelector('#examples ul').innerHTML = `
 <li>Сбора обратной связи от сотрудников.</li>
 <li>Проведения исследований и опросов.</li>
 `;
+
 document.querySelector('footer p').innerText = '© 2024 Конструктор Опросов.';
 } else {
 document.querySelector('h1').innerText = 'Survey builder';
@@ -53,3 +55,34 @@ document.querySelector('footer p').innerText = '© 2024 Survey Builder.';
 }
 // Инициализация языка при загрузке страницы
 updateLanguage();
+
+document.getElementById("createsurvey").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default behavior (e.g., page reload)
+
+        // Optionally, show a loading spinner or alert user that something is happening
+
+        // Send AJAX request to Flask server to create the survey
+        fetch('/createsurvey', {
+            method: 'POST',  // Using POST method (or GET if appropriate)
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                // You can send data to Flask in this JSON object
+                action: 'create_survey'
+            })
+        })
+        .then(response => response.json()) // Parse the JSON response from Flask
+        .then(data => {
+            // Handle the response from Flask here
+            if (data.status === 'success') {
+                alert("Survey created successfully!");
+                // You can also update the page, redirect, or show a modal based on the response
+            } else {
+                alert("Error creating survey.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });

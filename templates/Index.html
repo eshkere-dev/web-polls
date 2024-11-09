@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Конструктор Опросов - Эффективное Решение для Рекрутеров</title>
-    <link rel="stylesheet" href="/styles/index_style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}">
     <title>Всплывающее окно</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
             <h1>Конструктор опросов</h1>
             <nav>
                 <section id="button" class="bordered_button">
-                    <a href="#" class="cta">Создать опрос</a>
+                    <a href="#" id="createsurvey" class="cta">Создать опрос</a>
                 </section>
             </nav>
         </header>
@@ -47,6 +47,7 @@
     <p>&copy; 2024 Конструктор Опросов.</p>
         Выполнено командой Eshkere_dev
     </footer>
-<script src="../scripts/index_script.js"></script>
+<script src="{{ url_for('static', filename='scripts/index_script.js') }}"></script>
+
 </body>
 </html>
