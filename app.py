@@ -10,30 +10,35 @@ from flask_login import (LoginManager,
                          login_required,
                          logout_user,
                          current_user)
+from auth import auth_bp
+from flask_sqlalchemy import SQLAlchemy
+from auth.models import db, User
 import bleach
 
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:pass@localhost/postgres'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+app.secret_key = 'your_secret_key'
+
+db.init_app(app)
+
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login'
+login_manager.login_view = 'auth_bp.login'
 
-users = {
-    'user1': {'password': 'password1'},
-    'user2': {'password': 'password2'}
-}
 
-class User(UserMixin):
-    def __init__(self, id):
-        self.id = id
+app.register_blueprint(auth_bp, url_prefix="/auth")
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User(user_id) if user_id in users else None
+    return User.query.get(int(user_id))
 
-def is_logged():
-    return True
-
+@app.route('/')
+@login_required
+def home():
+    return f'Hello, {current_user.id}! <br> <a href="/auth/logout">Logout</a>'
 
 @app.route('/createsurvey', methods=['POST'])
 def create_survey():

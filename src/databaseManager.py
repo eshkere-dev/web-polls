@@ -50,5 +50,5 @@ def add_answer_to_poll(poll_UID) -> True:
 def edit_poll(poll_UID):
     pass
 
-def add_question(poll_UID)
-
+def add_question(poll_UID):
+    pass
