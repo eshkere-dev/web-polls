@@ -45,10 +45,7 @@ def create_survey():
     data = request.get_json()
     action = data.get('action')
     if action == "create_survey":
-        if is_logged():
-            return redirect('/create_survey')
-        else:
-            return redirect('/login')
+        return redirect('/create_survey')
 
 
 @app.route('/')
