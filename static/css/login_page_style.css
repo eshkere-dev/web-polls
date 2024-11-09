@@ -1,0 +1,80 @@
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: linear-gradient(90deg, #333333, #033333, #333333);
+color: #ffffff;
+display: flex;
+flex-direction: column; /* Вертикальное расположение элементов */
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+#translate-button {
+    position: absolute; /* Позиционирование кнопки */
+    top: 10px; /* Отступ сверху */
+    left: 10px; /* Отступ слева */
+    padding: 5px 10px; /* Маленькие отступы */
+    width: 100px; /* Фиксированная ширина кнопки */
+    background-color: #34a6a6;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+#translate-button:hover {
+background-color: #333333;
+color: #ffffff;
+}
+.form-container {
+display: flex; /* Используем flexbox для размещения форм в ряд */
+gap: 40px; /* Отступ между формами */
+}
+.container {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 10px;
+padding: 20px; /* Внутренний отступ контейнера */
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+width: 400px;
+box-sizing: border-box; /* Учитываем padding в ширине контейнера */
+display: flex; /* Используем flexbox для вертикального выравнивания содержимого */
+flex-direction: column; /* Вертикальное расположение элементов */
+justify-content: space-between; /* Равномерное распределение пространства между элементами */
+height: 400px; /* Фиксированная высота контейнера */
+}
+h2 {
+text-align: center;
+margin-bottom: 20px;
+}
+input[type="text"], input[type="password"] {
+width: calc(100% - 20px); /* Учитываем отступы */
+padding: 10px;
+margin: 10px 0;
+border: none;
+border-radius: 5px;
+box-sizing: border-box; /* Учитываем padding в ширине полей ввода */
+}
+button {
+width: calc(100% - 20px); /* Учитываем отступы */
+padding: 10px;
+background-color: #34a6a6;
+color: #333;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background 0.3s;
+margin-top: 10px; /* Отступ сверху для кнопок */
+}
+button:hover {
+background-color: #333333;
+color: #ffffff;
+}
+.link {
+text-align: center;
+margin-top: 10px;
+}
+.link a {
+color: #ffffff;
+text-decoration: none;
+}

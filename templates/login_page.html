@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Регистрация и Вход</title>
+<link rel="stylesheet" href= "{{url_for('static', filename="css/login_page_style.css") }}"> <!-- Подключаем CSS файл -->
+</head>
+<body>
+<button id="translate-button">EN</button> <!-- Кнопка перевода -->
+<div class="form-container">
+<div class="container" id="registration-container">
+<h2 id="registration-title">Регистрация</h2>
+<form>
+<input type="text" placeholder="Имя пользователя" required>
+<input type="text" placeholder="Электронная почта" required>
+<input type="password" placeholder="Пароль" required>
+<input type="password" placeholder="Повторите пароль" required>
+<button type="submit">Зарегистрироваться</button>
+</form>
+
+</div>
+<div class="container" id="login-container">
+<h2 id="login-title">Вход</h2>
+<form>
+<input type="text" placeholder="Электронная почта" required>
+<input type="password" placeholder="Пароль" required>
+<button type="submitt">Войти</button>
+</form>
+
+</div>
+</div>
+<script src="{{ url_for('static', filename='scripts/index_script.js') }}"></script> <!-- Подключаем JavaScript файл -->
+</body>
+</html>
