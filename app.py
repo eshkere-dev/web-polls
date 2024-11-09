@@ -1,3 +1,5 @@
+import os
+
 from flask import (Flask,
                    render_template,
                    redirect,
@@ -10,37 +12,22 @@ from flask_login import (LoginManager,
                          login_required,
                          logout_user,
                          current_user)
-from auth import auth_bp
-from flask_sqlalchemy import SQLAlchemy
-from auth.models import db, User
+import src.databaseManager as db
+import src.encoder as enc
+
 import bleach
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:pass@localhost/postgres'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = "Hello World!"
 
-app.secret_key = 'your_secret_key'
-
-db.init_app(app)
-
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = 'auth_bp.login'
-
-
-app.register_blueprint(auth_bp, url_prefix="/auth")
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 @app.route('/')
-@login_required
 def home():
-    return f'Hello, {current_user.id}! <br> <a href="/auth/logout">Logout</a>'
+    return render_template(url_for('index'))
 
-@app.route('/createsurvey', methods=['POST'])
+
+@app.route('/createsurvey/', methods=['POST'])
 def create_survey():
     data = request.get_json()
     action = data.get('action')
@@ -49,20 +36,36 @@ def create_survey():
 
 
 @app.route('/')
-def start():  # put application's code here
+def start():
     return render_template("index.html")
 
 
-@app.route('/login')
+@app.route('/login/', methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        try:
+            username = request.form["username"]
+            email = request.form['email']
+            password = request.form['password']
+            password_confirm = request.form['password_repeat']
+
+            if password != password_confirm:
+                return render_template('login.html', error="Passwords do not match. Please try again")
+
+            if db.add_user(email,
+                           username,
+                           enc.hash_password_bcrypt(password)):
+                flash("Registration successful!")
+                return redirect(url_for('index'))
+        except:
+            pass
+
     return render_template("login.html")
 
 
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        first_name = request.form['firstName']
-        last_name = request.form['lastName']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
 

@@ -1,10 +1,12 @@
 import psycopg2
+
 # In total exist 1 database and 5 table. Among them:
 # 1 - Users {UID, firstName, lastName, email, pollsNumber, registeredAt, password}
 # 2 - Polls {}
 # 3 - Questions {}
 # 4 - Completion {}
 # 5 - Answers {}
+
 connection = psycopg2.connect(
     host="localhost",
     port="5432",
@@ -16,7 +18,7 @@ connection = psycopg2.connect(
 cursor = connection.cursor()
 
 
-def add_user(email, first_name, last_name, password) -> bool:
+def add_user(email, username, password) -> bool:
     return True
 
 
