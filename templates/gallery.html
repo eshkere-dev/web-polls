@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Опросы</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}">
+</head>
+<body>
+<h1>Опросы</h1>
+<!-- Форма для добавления нового опроса -->
+<form id="pollForm" action="/submit_polls" method="POST">
+<label for="title">Название опроса:</label>
+<input type="text" id="title" name="title" required>
+<button type="submit">Добавить опрос</button>
+</form>
+<div id="pollsContainer"></div>
+<script src="{{ url_for('static', filename='scripts/gallery_scripts.js') }}"></script>
+</body>
+</html>
