@@ -1,0 +1,169 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(90deg, #333333, #033333, #333333);
+    color: #ffffff;
+}
+header {
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+    background: linear-gradient(90deg, #333333, #033333, #333333);
+    color: rgba(241, 204, 204, 0.8);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+nav {
+    margin: 20px 0;
+}
+nav a {
+    margin: 0 15px;
+    color: rgba(255, 255, 255, 0.81);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+nav a:hover {
+    color: rgba(241, 204, 204, 0.8);
+}
+section {
+    margin: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    color: #333333;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+.text {
+    color: #970e0e;
+}
+.cta {
+    background: #34a6a6;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+    padding: 20px 60px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    transition: background 0.3s;
+}
+.cta:hover {
+    background: #333333;
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #333333, #033333, #333333);
+    color: rgba(255, 255, 255, 0.35);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+@media (max-width: 600px) {
+h1 {
+font-size: 2em;
+}
+h2 {
+font-size: 1.5em;
+}
+}
+.bordered_button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+box-sizing: border-box;
+
+}
+
+
+.container {
+    position: relative;
+    top: 10px;
+    right: 10px;
+    box-sizing: border-box;
+}
+#toggleButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 15px;
+    background-color: #34a6a6; /* Цвет фона кнопки */
+    color: #333333; /* Цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.5s; /* Плавный переход цвета */
+}
+#toggleButton:hover {
+    background-color: #033333; /* Цвет фона при наведении */
+    color: rgba(255, 255, 255, 0.35);
+}
+.popup {
+    display: none; /* Скрываем окно по умолчанию */
+    position: absolute;
+    top: 30px;
+    right: 0;
+    border: 1px solid #000333;
+    background-color: #033333;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px; /* Скругление углов окна */
+}
+.popup button {
+    display: block;
+    margin: 5px 0;
+    padding: 10px 15px;
+    background-color: #34a6a6; /* Цвет фона кнопок */
+    color: #333333; /* Цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.5s; /* Плавный переход цвета */
+}
+.popup button:hover {
+    background-color: #333333; /* Цвет фона при наведении */
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.language-button {
+padding: 10px 15px; /* Отступы */
+background-color: #033333; /* Цвет фона */
+color: white; /* Цвет текста */
+border: none; /* Убираем рамку */
+border-radius: 5px; /* Скругление углов */
+cursor: pointer; /* Указатель при наведении */
+transition: background-color 0.3s, transform 0.2s; /* Плавный переход */
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+margin-left: 50px;
+}
+.language-button:hover {
+background-color: #0056b3; /* Цвет фона при наведении */
+transform: translateY(-2px); /* Подъем кнопки при наведении */
+}
+.language-button:active {
+transform: translateY(1px); /* Опускание кнопки при нажатии */
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Уменьшение тени при нажатии */
+}
