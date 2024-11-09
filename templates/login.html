@@ -11,7 +11,7 @@
 <div class="form-container">
 <div class="container" id="registration-container">
 <h2 id="registration-title">Регистрация</h2>
-<form>
+<form method="POST" action="{{ url_for('auth_bp.login') }}">
 <input type="text" placeholder="Имя пользователя" required>
 <input type="text" placeholder="Электронная почта" required>
 <input type="password" placeholder="Пароль" required>
@@ -22,7 +22,7 @@
 </div>
 <div class="container" id="login-container">
 <h2 id="login-title">Вход</h2>
-<form>
+<form method="POST" action="{{ url_for('auth_bp.login') }}">
 <input type="text" placeholder="Электронная почта" required>
 <input type="password" placeholder="Пароль" required>
 <button type="submitt">Войти</button>
